@@ -25,3 +25,8 @@ pip install beautifulsoup4
 git clone https://github.com/your-username/wanted-keyword-scraper.git
 cd wanted-keyword-scraper
 ```
+
+### 3. 기술 스택 키워드 변경
+```python
+keywords = ["flutter", "dart", "unity"] # 다른 기술 스택으로 변경 가능
+```
