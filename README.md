@@ -1,4 +1,4 @@
-# Job Scraper in Wanted 📰
+# Job Scraper in Wanted(Python)
 
 This Python-based web scraper automatically collects job postings searched for with specific keywords on [Wanted](https://www.wanted.co.kr) using the Chrome browser and saves them as a CSV file.
 
