@@ -9,6 +9,7 @@ class KeywordScraper:
         self.keywords = keywords
         self.result = {}
 
+    
     def scrap(self, akeyword, page):
         page.goto(f"https://www.wanted.co.kr/search?query={akeyword}&tab=position")
 
@@ -26,12 +27,10 @@ class KeywordScraper:
         jobs_db = []
 
         for job in jobs:
-            company_name = job.find("span",
-                                    class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__company__ByVLu wds-nkj4w6").text
+            company_name = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__company__ByVLu wds-nkj4w6").text
 
-            career_time = job.find("span",
-                                   class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__location__4_w0l wds-nkj4w6").text
-
+            career_time = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__location__4_w0l wds-nkj4w6").text
+            
             link = f"https://wanted.co.kr{job.find('a')['href']}"
 
             job_dict = {
@@ -44,6 +43,7 @@ class KeywordScraper:
 
         return jobs_db
 
+    
     def save_to_csv(self, akeyword, jobs_db):
         file = open(f"{akeyword}.csv", "w", encoding="utf-8")
 
@@ -55,6 +55,7 @@ class KeywordScraper:
 
         file.close()
 
+    
     def run(self):
         p = sync_playwright().start()
 
